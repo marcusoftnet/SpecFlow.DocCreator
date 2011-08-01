@@ -58,7 +58,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FeatureFileQueryServiceTests.cs" />
+    <Compile Include="FeatureVMListFactoryTests.cs" />
+    <Compile Include="FeatureVMListFactory_SingleFileTests.cs" />
     <Compile Include="NConsolerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
