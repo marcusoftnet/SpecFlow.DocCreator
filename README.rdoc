@@ -1,0 +1,4 @@
+= SpecFlow.DocCreator
+
+A simple console application that creates a HTML application to be used as (living) documentation for a project using Specification by example and SpecFlow. 
+
