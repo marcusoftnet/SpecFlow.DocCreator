@@ -29,8 +29,8 @@
             var featureFiles = Directory.GetFiles(rootPath, FEATURE_PATTERN, SearchOption.AllDirectories);
 
             // Parse the features for the files
-            return featureFiles.Select(
-                    featureFile => this.CreateFeature(featureFile))
+            return featureFiles.Select(this.CreateFeature)
+                    .OrderBy(f => f.Directory)
                     .ToList();
         }
 
