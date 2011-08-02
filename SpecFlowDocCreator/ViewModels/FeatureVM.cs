@@ -9,6 +9,6 @@
         public string FileName { get;  set; }
         public string Directory { get;  set; }
 
-        public IList<ScenarioVm> ScenarioList { get; set; }
+        public new IList<ScenarioVm> Scenarios { get; set; }
     }
 }

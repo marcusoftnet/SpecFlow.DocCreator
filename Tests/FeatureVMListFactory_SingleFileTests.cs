@@ -1,5 +1,8 @@
 ﻿namespace Tests
 {
+    using System;
+    using System.Linq;
+
     using NUnit.Framework;
     using Should.Fluent;
 
@@ -68,7 +71,16 @@
         public void should_set_the_scenarios_of_the_feature()
         {
             // Assert
-            this.featureVMUnderTest.ScenarioList.Count.Should().Equal(2);
+            this.featureVMUnderTest.Scenarios.Count().Should().Equal(2);
+        }
+
+        [Test]
+        public void should_set_the_scenario_steps_of_each_scenario()
+        {
+            // Assert
+            var scenarioToCheck = featureVMUnderTest.Scenarios.Single(s => s.Title == "Simple GWT");
+            scenarioToCheck.Steps.Count().Should().Equal(3);
+            scenarioToCheck.Steps[0].Text.Should().Equal("Given the initial state of the application is Running");
         }
     }
 }
