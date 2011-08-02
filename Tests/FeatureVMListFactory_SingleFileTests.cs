@@ -11,13 +11,8 @@
     [TestFixture]
     public class FeatureVMListFactory_SingleFileTests
     {
-        private const string ROOT_TESTDATA = @"..\..\..\TestData\";
-        private const string EMPTY_FOLDER = ROOT_TESTDATA + @"EmptyFolder";
-        private const string ONE_FEATURE_FOLDER = ROOT_TESTDATA + @"FolderWith1Feature";
-        private const string DEEP_ONE_FEATURE_FOLDER = ROOT_TESTDATA + @"Deep1Feature";
-        private const string DEEP_ONE_FEATURE_PER_FOLDER = ROOT_TESTDATA + @"Deep1FeaturePerFolder";
-        private const string DEEP_WITH_EMPTY_PATHS = ROOT_TESTDATA + @"FoldersWithoutFeatures";
-        private const string NON_EXSISTING_PATH = @"C:\DOESNTEXSIST";
+        private const string ROOT_TESTDATA = @"..\..\TestData\";
+        private const string ONE_FEATURE_FOLDER = ROOT_TESTDATA + @"00BasicGherkin";
 
         private const string FEATUREFILE_BASIC = "BasicGherkin.feature";
 

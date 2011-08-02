@@ -56,15 +56,182 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\packages\SpecFlow.1.7.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FeatureVMListFactoryTests.cs" />
     <Compile Include="FeatureVMListFactory_SingleFileTests.cs" />
     <Compile Include="NConsolerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestData\00BasicGherkin\BasicGherkin1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BasicGherkin.feature</DependentUpon>
+    </Compile>
+    <Compile Include="TestData\00BasicGherkin\BasicGherkinSteps.cs" />
+    <Compile Include="TestData\01TestRunner\TestRunnerDemoSteps.cs" />
+    <Compile Include="TestData\01TestRunner\TestRunnerIsNotImportant1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestRunnerIsNotImportant.feature</DependentUpon>
+    </Compile>
+    <Compile Include="TestData\02TagsAndHooks\Hooks1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Hooks.feature</DependentUpon>
+    </Compile>
+    <Compile Include="TestData\02TagsAndHooks\HooksDemoSteps.cs" />
+    <Compile Include="TestData\02TagsAndHooks\TagDemo1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TagDemo.feature</DependentUpon>
+    </Compile>
+    <Compile Include="TestData\02TagsAndHooks\TagDemoSteps.cs" />
+    <Compile Include="TestData\03ScenarioOutline\031ScenarioContext\ScenarioContext1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScenarioContext.feature</DependentUpon>
+    </Compile>
+    <Compile Include="TestData\03ScenarioOutline\031ScenarioContext\ScenarioContextSteps.cs" />
+    <Compile Include="TestData\03ScenarioOutline\032FeatureContext\FeatureContextFeatures1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FeatureContextFeatures.feature</DependentUpon>
+    </Compile>
+    <Compile Include="TestData\03ScenarioOutline\032FeatureContext\FeatureContextSteps.cs" />
+    <Compile Include="TestData\03ScenarioOutline\ScenarioOutline1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScenarioOutline.feature</DependentUpon>
+    </Compile>
+    <Compile Include="TestData\03ScenarioOutline\ScenarioOutlineTests.cs" />
+    <Compile Include="TestData\04Background\BackgroundFeature1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BackgroundFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="TestData\04Background\BackgroundSteps.cs" />
+    <Compile Include="TestData\05TablesAndAssist\TableScenario1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TableScenario.feature</DependentUpon>
+    </Compile>
+    <Compile Include="TestData\05TablesAndAssist\TableSteps.cs" />
+    <Compile Include="TestData\06CompareToAssist\CompareTo1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompareTo.feature</DependentUpon>
+    </Compile>
+    <Compile Include="TestData\06CompareToAssist\CompareToSteps.cs" />
+    <Compile Include="TestData\07Svenska\Svenska1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Svenska.feature</DependentUpon>
+    </Compile>
+    <Compile Include="TestData\07Svenska\SvenskaSteg.cs" />
+    <Compile Include="TestData\08AttributeOverloading\AttributeOverloading1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AttributeOverloading.feature</DependentUpon>
+    </Compile>
+    <Compile Include="TestData\08AttributeOverloading\AttributeOverloadingSteps.cs" />
+    <Compile Include="TestData\09CallingStepsFromSteps\CallingStepsFromStepDefinitionSteps.cs" />
+    <Compile Include="TestData\09CallingStepsFromSteps\CallingStepsFromSteps1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CallingStepsFromSteps.feature</DependentUpon>
+    </Compile>
+    <Compile Include="TestData\10StepTransformation\Entities\Terminal.cs" />
+    <Compile Include="TestData\10StepTransformation\Entities\User.cs" />
+    <Compile Include="TestData\10StepTransformation\StepTransformation1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StepTransformation.feature</DependentUpon>
+    </Compile>
+    <Compile Include="TestData\10StepTransformation\StepTransformationSteps.cs" />
+    <Compile Include="TestData\10StepTransformation\Transformations\DateConverter.cs" />
+    <Compile Include="TestData\10StepTransformation\Transformations\TerminalConverter.cs" />
+    <Compile Include="TestData\10StepTransformation\Transformations\UserConverter.cs" />
+    <Compile Include="TestData\11ContextInjection\ContextInjection1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContextInjection.feature</DependentUpon>
+    </Compile>
+    <Compile Include="TestData\11ContextInjection\Contexts\NestedContext.cs" />
+    <Compile Include="TestData\11ContextInjection\Contexts\SingleContext.cs" />
+    <Compile Include="TestData\11ContextInjection\FeatureWithADependentContextSteps.cs" />
+    <Compile Include="TestData\11ContextInjection\FeatureWithARecursiveContextSteps.cs" />
+    <Compile Include="TestData\11ContextInjection\FeatureWithASingleContextSteps.cs" />
+    <Compile Include="TestData\11ContextInjection\FeatureWithMultipleContextsSteps.cs" />
+    <Compile Include="TestData\11ContextInjection\FeatureWithNoContextSteps.cs" />
+    <Compile Include="TestData\99TestEntities\Person.cs" />
+    <Compile Include="TestData\99TestEntities\Style.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="TestData\00BasicGherkin\BasicGherkin.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>BasicGherkin1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="TestData\01TestRunner\TestRunnerIsNotImportant.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>TestRunnerIsNotImportant1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="TestData\02TagsAndHooks\Hooks.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Hooks1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="TestData\02TagsAndHooks\TagDemo.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>TagDemo1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="TestData\03ScenarioOutline\031ScenarioContext\ScenarioContext.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ScenarioContext1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="TestData\03ScenarioOutline\032FeatureContext\FeatureContextFeatures.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>FeatureContextFeatures1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="TestData\03ScenarioOutline\ScenarioOutline.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ScenarioOutline1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="TestData\04Background\BackgroundFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>BackgroundFeature1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="TestData\05TablesAndAssist\TableScenario.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>TableScenario1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="TestData\06CompareToAssist\CompareTo.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CompareTo1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="TestData\07Svenska\Svenska.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Svenska1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="TestData\08AttributeOverloading\AttributeOverloading.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AttributeOverloading1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="TestData\09CallingStepsFromSteps\CallingStepsFromSteps.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CallingStepsFromSteps1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="TestData\10StepTransformation\StepTransformation.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>StepTransformation1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="TestData\11ContextInjection\ContextInjection.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ContextInjection1.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpecFlowDocCreator\SpecFlowDocCreator.csproj">
@@ -72,6 +239,7 @@
       <Name>SpecFlowDocCreator</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

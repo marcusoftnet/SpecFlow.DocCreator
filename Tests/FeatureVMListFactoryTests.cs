@@ -8,7 +8,7 @@
     [TestFixture]
     public class FeatureVMListFactoryTests
     {
-        private const string ROOT_TESTDATA = @"..\..\..\TestData\";
+        private const string ROOT_TESTDATA = @"..\..\TestData\";
         private const string EMPTY_FOLDER = ROOT_TESTDATA + @"EmptyFolder";
         private const string NON_EXSISTING_PATH = @"C:\DOESNTEXSIST";
 
