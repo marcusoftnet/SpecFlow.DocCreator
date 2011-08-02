@@ -2,15 +2,13 @@
 {
     using System.Collections.Generic;
 
-    public class FeatureVM
+    using TechTalk.SpecFlow.Parser.SyntaxElements;
+
+    public class FeatureVm : Feature
     {
-        public string Path { get; set; }
-        public string FileName { get; set; }
-        public string Directory { get; set; }
-        public string Title { get; set; }
+        public string FileName { get;  set; }
+        public string Directory { get;  set; }
 
-        public string Description { get; set; }
-
-        public IList<ScenarioVM> Scenarios { get; set; }
+        public IList<ScenarioVm> ScenarioList { get; set; }
     }
 }

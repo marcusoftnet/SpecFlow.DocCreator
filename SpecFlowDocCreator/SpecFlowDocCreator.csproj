@@ -35,6 +35,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Gherkin, Version=2.3.6.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Gherkin.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Core, Version=0.44.0.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\IKVM.OpenJDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Security, Version=0.44.0.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\IKVM.OpenJDK.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Text, Version=0.44.0.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\IKVM.OpenJDK.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Util, Version=0.44.0.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\IKVM.OpenJDK.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime, Version=0.44.0.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\IKVM.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="NConsoler">
       <HintPath>..\packages\NConsoler.2.0.0.0\lib\NConsoler.dll</HintPath>
     </Reference>
@@ -72,8 +96,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\FeatureVmFileListFactory.cs" />
     <Compile Include="Services\IFeatureVMFileListFactory.cs" />
-    <Compile Include="ViewModels\FeatureVM.cs" />
-    <Compile Include="ViewModels\ScenarioVM.cs" />
+    <Compile Include="ViewModels\FeatureVm.cs" />
+    <Compile Include="ViewModels\ScenarioVm.cs" />
+    <Compile Include="ViewModels\StepVm.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

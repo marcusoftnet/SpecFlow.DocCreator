@@ -2,7 +2,7 @@
 {
     using TechTalk.SpecFlow.Parser.SyntaxElements;
 
-    public class ScenarioVm : Scenario
+    public class StepVm : ScenarioStep
     {
     }
 }

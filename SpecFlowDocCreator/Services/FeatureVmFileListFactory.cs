@@ -23,7 +23,7 @@
             this.specFlowParser = new SpecFlowLangParser(CultureInfo.CreateSpecificCulture(featureLanguage)); ;
         }
 
-        public IList<FeatureVM> GetFeatures()
+        public IList<FeatureVm> GetFeatures()
         {
             //Get all feature-files in the folder and subfolders
             var featureFiles = Directory.GetFiles(rootPath, FEATURE_PATTERN, SearchOption.AllDirectories);
@@ -45,24 +45,38 @@
             return feature;
         }
 
-        private FeatureVM CreateFeature(string featureFile)
+        private FeatureVm CreateFeature(string featureFile)
         {
             var specFlowFeature = this.ParseSpecFlowFeature(featureFile);
-
-            return new FeatureVM
+            var vm = new FeatureVm
                 {
-                    Path = featureFile,
-                    Directory = Path.GetDirectoryName(featureFile),
-                    FileName = Path.GetFileName(featureFile),
                     Title = specFlowFeature.Title,
                     Description = specFlowFeature.Description,
-                    Scenarios = CreateScenarios(specFlowFeature.Scenarios)
+                    Comments = specFlowFeature.Comments,
+                    SourceFile = specFlowFeature.SourceFile,
+                    Tags = specFlowFeature.Tags,
+                    Language = specFlowFeature.Language,
+                    Keyword = specFlowFeature.Keyword,
+                    Background = specFlowFeature.Background,
+                    Directory = Path.GetDirectoryName(featureFile),
+                    FileName = Path.GetFileName(featureFile)
                 };
+
+            vm.ScenarioList = CreateScenarioList(specFlowFeature);
+
+            return vm;
         }
 
-        private static IList<ScenarioVM> CreateScenarios(IEnumerable<Scenario> scenarios)
+        private IList<ScenarioVm> CreateScenarioList(Feature specFlowFeature)
         {
-            return scenarios.Select(scenario => new ScenarioVM()).ToList();
+            return specFlowFeature.Scenarios.Select(specFlowScenario => new ScenarioVm
+                {
+                    Description = specFlowScenario.Description,
+                    Keyword = specFlowScenario.Keyword,
+                    Steps = specFlowScenario.Steps,
+                    Tags = specFlowScenario.Tags,
+                    Title = specFlowScenario.Title
+                }).ToList();
         }
     }
 }

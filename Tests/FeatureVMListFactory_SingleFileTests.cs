@@ -1,7 +1,5 @@
 ﻿namespace Tests
 {
-    using System.Collections.Generic;
-    using System.IO;
     using NUnit.Framework;
     using Should.Fluent;
 
@@ -13,18 +11,11 @@
     {
         private const string ROOT_TESTDATA = @"..\..\TestData\";
         private const string ONE_FEATURE_FOLDER = ROOT_TESTDATA + @"00BasicGherkin";
-
         private const string FEATUREFILE_BASIC = "BasicGherkin.feature";
-
+        
         private IFeatureVMFileListFactory featureFileListFactory;
-
-
-        private FeatureVM featureVMUnderTest;
-
-        public FeatureVMListFactory_SingleFileTests()
-        {
-        }
-
+        private FeatureVm featureVMUnderTest;
+        
         [SetUp]
         public void Setup()
         {
@@ -47,7 +38,7 @@
         {
             // Assert
             var expectedPath = ONE_FEATURE_FOLDER + "\\" + FEATUREFILE_BASIC;
-            this.featureVMUnderTest.Path.Should().Equal(expectedPath);
+            this.featureVMUnderTest.SourceFile.Should().Equal(expectedPath);
         }
 
         [Test]
@@ -77,51 +68,7 @@
         public void should_set_the_scenarios_of_the_feature()
         {
             // Assert
-            this.featureVMUnderTest.Scenarios.Count.Should().Equal(2);
+            this.featureVMUnderTest.ScenarioList.Count.Should().Equal(2);
         }
-
-        //[Test]
-        //public void should_return_a_deep_folder_structure_with_only_1_file()
-        //{
-        //    // Act
-        //    var features = featureFileQueryService.GetFeatures(DEEP_ONE_FEATURE_FOLDER);
-
-        //    // Assert
-        //    features.FeatureFolders.Count.Should().Equal(1);
-        //    features.Features.Count.Should().Equal(0);
-
-        //    features.FeatureFolders[0].FeatureFolders.Count.Should().Equal(1);
-        //    features.FeatureFolders[0].Features.Count.Should().Equal(0);
-
-        //    features.FeatureFolders[0].FeatureFolders[0].FeatureFolders.Count.Should().Equal(0);
-        //    features.FeatureFolders[0].FeatureFolders[0].Features.Count.Should().Equal(1);
-        //}
-
-        //[Test]
-        //public void should_be_able_to_count_the_number_of_features_in_a_file_structure()
-        //{
-        //    // Act
-        //    var features = featureFileQueryService.GetFeatures(DEEP_ONE_FEATURE_PER_FOLDER);
-
-        //    // Assert
-        //    features.TotalNumberOfFeatures.Should().Equal(3);
-        //    features.FeatureFolders[0].TotalNumberOfFeatures.Should().Equal(2);
-        //    features.FeatureFolders[0].FeatureFolders[0].TotalNumberOfFeatures.Should().Equal(1);
-        //}
-
-        //[Test]
-        //[Ignore("Would love to get this test to work but don't know how now")]
-        //public void should_not_included_folder_structures_with_no_feature_files_in()
-        //{
-        //    // Act
-        //    var features = featureFileQueryService.GetFeatures(DEEP_WITH_EMPTY_PATHS);
-
-        //    // Assert
-        //    features.TotalNumberOfFeatures.Should().Equal(1);
-        //    features.Features.Count.Should().Equal(1);
-        //    features.FeatureFolders.Count.Should().Equal(0);
-
-        //}
-
     }
 }

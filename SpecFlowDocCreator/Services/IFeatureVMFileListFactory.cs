@@ -6,6 +6,6 @@
 
     public interface IFeatureVMFileListFactory
     {
-        IList<FeatureVM> GetFeatures();
+        IList<FeatureVm> GetFeatures();
     }
 }
