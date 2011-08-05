@@ -96,6 +96,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\FeatureVmFileListFactory.cs" />
     <Compile Include="Services\IFeatureVMFileListFactory.cs" />
+    <Compile Include="Services\ISpecFlowReportGenerator.cs" />
+    <Compile Include="Services\SpecFlowReportGenerator.cs" />
     <Compile Include="ViewModels\FeatureVm.cs" />
     <Compile Include="ViewModels\ScenarioVm.cs" />
     <Compile Include="ViewModels\StepVm.cs" />

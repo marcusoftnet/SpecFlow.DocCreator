@@ -8,7 +8,7 @@
     using SpecFlowDocCreator.Services;
     using SpecFlowDocCreator.ViewModels;
 
-    [TestFixture]
+    [TestFixture, Ignore]
     public class FeatureVMListFactory_MultipleFilesTests
     {
         private const string ROOT_TESTDATA = @"..\..\TestData\";

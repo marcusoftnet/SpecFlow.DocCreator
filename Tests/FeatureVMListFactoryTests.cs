@@ -5,7 +5,7 @@
     using Should.Fluent;
     using SpecFlowDocCreator.Services;
 
-    [TestFixture]
+    [TestFixture, Ignore]
     public class FeatureVMListFactoryTests
     {
         private const string ROOT_TESTDATA = @"..\..\TestData\";

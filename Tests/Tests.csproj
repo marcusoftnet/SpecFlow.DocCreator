@@ -94,14 +94,16 @@
     <Compile Include="FeatureVMListFactory_SingleFileTests.cs" />
     <Compile Include="NConsolerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpecFlowFeatureReportTests.cs" />
+    <Compile Include="TestConstants.cs" />
     <Compile Include="TestData\00BasicGherkin\BasicGherkin1.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BasicGherkin.feature</DependentUpon>
     </Compile>
     <Compile Include="TestData\00BasicGherkin\BasicGherkinSteps.cs" />
-    <Compile Include="TestData\01TestRunner\TestRunnerDemoSteps.cs" />
-    <Compile Include="TestData\01TestRunner\TestRunnerIsNotImportant1.feature.cs">
+    <Compile Include="TestData\Iteration1\TestType1\Important\01TestRunner\TestRunnerDemoSteps.cs" />
+    <Compile Include="TestData\Iteration1\TestType1\Important\01TestRunner\TestRunnerIsNotImportant1.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TestRunnerIsNotImportant.feature</DependentUpon>
@@ -205,7 +207,7 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>BasicGherkin1.feature.cs</LastGenOutput>
     </None>
-    <None Include="TestData\01TestRunner\TestRunnerIsNotImportant.feature">
+    <None Include="TestData\Iteration1\TestType1\Important\01TestRunner\TestRunnerIsNotImportant.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>TestRunnerIsNotImportant1.feature.cs</LastGenOutput>
     </None>
