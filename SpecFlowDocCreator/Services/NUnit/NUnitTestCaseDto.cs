@@ -1,4 +1,6 @@
-﻿using System.Xml.Linq;
+﻿using System;
+using System.Linq;
+using System.Xml.Linq;
 
 namespace SpecFlowDocCreator.Services.NUnit
 {
@@ -13,6 +15,12 @@ namespace SpecFlowDocCreator.Services.NUnit
             Success = bool.Parse(resultElement.Attribute("success").Value);
             Time = resultElement.Attribute("time").Value;
             Asserts = int.Parse(resultElement.Attribute("asserts").Value);
+
+            ReasonMessage = string.Empty;
+            if(resultElement.Elements("reason").Any())
+            {
+                ReasonMessage = resultElement.Elements("reason").ElementAt(0).Value;
+            }
         }
 
         public string Type { get; set; }
@@ -23,5 +31,6 @@ namespace SpecFlowDocCreator.Services.NUnit
         public bool Success { get; set; }
         public string Time { get; set; }
         public int Asserts { get; set; }
+        public string ReasonMessage { get; set; }
     }
 }
