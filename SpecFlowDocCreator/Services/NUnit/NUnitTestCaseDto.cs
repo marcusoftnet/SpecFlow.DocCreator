@@ -21,6 +21,10 @@ namespace SpecFlowDocCreator.Services.NUnit
             {
                 ReasonMessage = resultElement.Elements("reason").ElementAt(0).Value;
             }
+            if(resultElement.Element("failure") != null)
+            {
+                Failure = new NUnitTestFailureDto(resultElement.Element("failure"));
+            }
         }
 
         public string Type { get; set; }
@@ -32,5 +36,7 @@ namespace SpecFlowDocCreator.Services.NUnit
         public string Time { get; set; }
         public int Asserts { get; set; }
         public string ReasonMessage { get; set; }
+
+        public NUnitTestFailureDto Failure { get; set; }
     }
 }

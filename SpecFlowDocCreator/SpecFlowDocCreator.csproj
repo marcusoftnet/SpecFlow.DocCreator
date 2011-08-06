@@ -97,6 +97,7 @@
     <Compile Include="Services\NUnit\INUnitReportParser.cs" />
     <Compile Include="Services\NUnit\NUnitReportParser.cs" />
     <Compile Include="Services\NUnit\NUnitTestCaseDto.cs" />
+    <Compile Include="Services\NUnit\NUnitTestFailureDto.cs" />
     <Compile Include="Services\NUnit\NUnitTestResultDto.cs" />
     <Compile Include="Services\NUnit\NUnitTestSuiteDto.cs" />
     <Compile Include="Services\SpecFlowReportGenerator.cs" />
