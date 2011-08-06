@@ -2,7 +2,7 @@
 {
     public static class TestConstants
     {
-        public const string ROOT_TESTDATA = @"..\..\TestData\";
+        public const string ROOT_TESTDATA = @"..\..\..\TestData.Specs\TestData\";
 
     }
 }

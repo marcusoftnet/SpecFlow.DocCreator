@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		SpecFlow.DocCreator mockup.png = SpecFlow.DocCreator mockup.png
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestData.Specs", "TestData.Specs\TestData.Specs.csproj", "{09EFDB9F-73B5-4BA4-97A6-69CF17B53806}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,16 @@ Global
 		{BB3538D6-6621-4295-8B3B-EBCA7398397A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{BB3538D6-6621-4295-8B3B-EBCA7398397A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{BB3538D6-6621-4295-8B3B-EBCA7398397A}.Release|x86.ActiveCfg = Release|Any CPU
+		{09EFDB9F-73B5-4BA4-97A6-69CF17B53806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09EFDB9F-73B5-4BA4-97A6-69CF17B53806}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09EFDB9F-73B5-4BA4-97A6-69CF17B53806}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{09EFDB9F-73B5-4BA4-97A6-69CF17B53806}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{09EFDB9F-73B5-4BA4-97A6-69CF17B53806}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{09EFDB9F-73B5-4BA4-97A6-69CF17B53806}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09EFDB9F-73B5-4BA4-97A6-69CF17B53806}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09EFDB9F-73B5-4BA4-97A6-69CF17B53806}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{09EFDB9F-73B5-4BA4-97A6-69CF17B53806}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{09EFDB9F-73B5-4BA4-97A6-69CF17B53806}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
