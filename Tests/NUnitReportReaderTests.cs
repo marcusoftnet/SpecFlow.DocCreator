@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using Should.Fluent;
+using SpecFlowDocCreator.Services;
 using SpecFlowDocCreator.Services.NUnit;
 
 namespace Tests

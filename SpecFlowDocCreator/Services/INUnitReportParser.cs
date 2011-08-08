@@ -1,4 +1,6 @@
-﻿namespace SpecFlowDocCreator.Services.NUnit
+﻿using SpecFlowDocCreator.Services.NUnit;
+
+namespace SpecFlowDocCreator.Services
 {
     public interface INUnitReportParser
     {

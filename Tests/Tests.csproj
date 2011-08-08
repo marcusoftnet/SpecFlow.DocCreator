@@ -89,6 +89,8 @@
     <Reference Include="TechTalk.SpecFlow.Parser, Version=1.6.1.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FeatureDocReportCreatorTests.cs" />
+    <Compile Include="FeatureListVmFactoryTests.cs" />
     <Compile Include="NConsolerTests.cs" />
     <Compile Include="NUnitReportReaderTests.cs" />
     <Compile Include="NUnitTestSuiteDtoTests.cs" />

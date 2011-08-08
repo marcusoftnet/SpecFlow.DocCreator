@@ -2,13 +2,14 @@
 using NUnit.Framework;
 using Should.Fluent;
 using SpecFlowDocCreator.Services;
+using SpecFlowDocCreator.ViewModels;
+using TechTalk.SpecFlow.Parser.SyntaxElements;
 
 namespace Tests
 {
     [TestFixture]
     public class SpecFlowFeatureReportTests
     {
-
         [Test]
         public void should_create_a_structure_for_1_specflow_feature_in_1_directory()
         {

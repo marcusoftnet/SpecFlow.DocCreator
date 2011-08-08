@@ -1,7 +1,6 @@
 ﻿using System.Xml.Linq;
 using NUnit.Framework;
 using Should.Fluent;
-using SpecFlowDocCreator.Services;
 using SpecFlowDocCreator.Services.NUnit;
 
 namespace Tests
@@ -47,11 +46,11 @@ at Tests.TestData._03ScenarioOutline._031ScenarioContext.ScenarioContextFeatures
         public void should_create_a_successful_test_suite_from_nunit_result_xmlelement()
         {
             // Arrange
-            var node =XElement.Parse(SUCESS_NODE);
+            var node = XElement.Parse(SUCESS_NODE);
 
             // Act
             var nunitTestSuite = new NUnitTestSuiteDto(node);
-            
+
             // Assert
             nunitTestSuite.Name.Should().Equal("ShowingBasicGherkinSyntaxFeature");
             nunitTestSuite.Success.Should().Equal(true);

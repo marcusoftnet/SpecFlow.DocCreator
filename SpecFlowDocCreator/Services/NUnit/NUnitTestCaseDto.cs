@@ -8,22 +8,21 @@ namespace SpecFlowDocCreator.Services.NUnit
     {
         public NUnitTestCaseDto(XElement resultElement)
         {
-            Name = resultElement.Attribute("name").Value;
-            Description = resultElement.Attribute("description").Value;
-            Executed = bool.Parse(resultElement.Attribute("executed").Value);
-            Result = resultElement.Attribute("result").Value;
-            Success = bool.Parse(resultElement.Attribute("success").Value);
-            Time = resultElement.Attribute("time").Value;
-            Asserts = int.Parse(resultElement.Attribute("asserts").Value);
+            Name = resultElement.Attribute(NUnitConstants.NAME).ValueOrEmptyString();
+            Description = resultElement.Attribute(NUnitConstants.DESCRIPTION).ValueOrEmptyString();
+            Executed = resultElement.Attribute(NUnitConstants.EXECUTED).ValueOrFalse();
+            Result = resultElement.Attribute(NUnitConstants.RESULT).ValueOrEmptyString();
+            Time = resultElement.Attribute(NUnitConstants.TIME).ValueOrEmptyString();
+            Asserts = resultElement.Attribute(NUnitConstants.ASSERTS).ValueOrZero();
 
             ReasonMessage = string.Empty;
-            if(resultElement.Elements("reason").Any())
+            if (resultElement.Elements(NUnitConstants.REASON).Any())
             {
-                ReasonMessage = resultElement.Elements("reason").ElementAt(0).Value;
+                ReasonMessage = resultElement.Elements(NUnitConstants.REASON).ElementAt(0).Value;
             }
-            if(resultElement.Element("failure") != null)
+            if (resultElement.Element(NUnitConstants.FAILURE) != null)
             {
-                Failure = new NUnitTestFailureDto(resultElement.Element("failure"));
+                Failure = new NUnitTestFailureDto(resultElement.Element(NUnitConstants.FAILURE));
             }
         }
 
@@ -32,11 +31,15 @@ namespace SpecFlowDocCreator.Services.NUnit
         public string Description { get; set; }
         public bool Executed { get; set; }
         public string Result { get; set; }
-        public bool Success { get; set; }
         public string Time { get; set; }
         public int Asserts { get; set; }
         public string ReasonMessage { get; set; }
 
         public NUnitTestFailureDto Failure { get; set; }
+
+        public bool Success { get { return Result.ToLower() == NUnitConstants.SUCCESS; } }
+        public bool Ignored { get { return Result.ToLower() == NUnitConstants.IGNORED; } }
+        public bool Failed { get { return Result.ToLower() == NUnitConstants.FAILURE; } }
+        public bool Inconclusive { get { return Result.ToLower() == NUnitConstants.INCONCLUSIVE; } }
     }
 }

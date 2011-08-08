@@ -7,8 +7,8 @@ namespace SpecFlowDocCreator.Services.NUnit
 
         public NUnitTestFailureDto(XElement failureNode)
         {
-            StackTrace = failureNode.Element("stack-trace").Value;
-            Message = failureNode.Element("message").Value;
+            StackTrace = failureNode.Element(NUnitConstants.STACKTRACE).Value;
+            Message = failureNode.Element(NUnitConstants.MESSAGE).Value;
         }
         public string StackTrace { get; set; }
         public string Message { get; set; }

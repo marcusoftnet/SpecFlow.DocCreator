@@ -62,8 +62,8 @@
     <Reference Include="NConsoler">
       <HintPath>..\packages\NConsoler.2.0.0.0\lib\NConsoler.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json.Net35">
-      <HintPath>..\lib\Newtonsoft.Json.Net35.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -93,16 +93,23 @@
     <Compile Include="FeatureDocCreator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\FeatureDocReportCreator.cs" />
+    <Compile Include="Services\IFeatureDocReportCreator.cs" />
+    <Compile Include="Services\INUnitReportParser.cs" />
     <Compile Include="Services\ISpecFlowReportGenerator.cs" />
-    <Compile Include="Services\NUnit\INUnitReportParser.cs" />
-    <Compile Include="Services\NUnit\NUnitReportParser.cs" />
+    <Compile Include="Services\NUnitReportParser.cs" />
+    <Compile Include="Services\NUnit\NullChecker.cs" />
+    <Compile Include="Services\NUnit\NUnitConstants.cs" />
     <Compile Include="Services\NUnit\NUnitTestCaseDto.cs" />
     <Compile Include="Services\NUnit\NUnitTestFailureDto.cs" />
     <Compile Include="Services\NUnit\NUnitTestResultDto.cs" />
     <Compile Include="Services\NUnit\NUnitTestSuiteDto.cs" />
     <Compile Include="Services\SpecFlowReportGenerator.cs" />
+    <Compile Include="ViewModels\FeatureListVm.cs" />
     <Compile Include="ViewModels\FeatureVm.cs" />
+    <Compile Include="ViewModels\ScenarioListVm.cs" />
     <Compile Include="ViewModels\ScenarioVm.cs" />
+    <Compile Include="ViewModels\StepListVm.cs" />
     <Compile Include="ViewModels\StepVm.cs" />
   </ItemGroup>
   <ItemGroup>
