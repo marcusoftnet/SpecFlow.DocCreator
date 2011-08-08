@@ -92,7 +92,7 @@
     <Compile Include="FeatureDocReportCreatorTests.cs" />
     <Compile Include="FeatureListVmFactoryTests.cs" />
     <Compile Include="NConsolerTests.cs" />
-    <Compile Include="NUnitReportReaderTests.cs" />
+    <Compile Include="NUnitReportParserTests.cs" />
     <Compile Include="NUnitTestSuiteDtoTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecFlowFeatureReportTests.cs" />

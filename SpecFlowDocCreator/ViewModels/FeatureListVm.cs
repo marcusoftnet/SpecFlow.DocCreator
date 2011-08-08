@@ -6,7 +6,16 @@ namespace SpecFlowDocCreator.ViewModels
 {
     public class FeatureListVm : List<FeatureVm>
     {
-        public static FeatureListVm CreateFromFeatures(List<Feature> specFlowFeatures)
+
+        public int NumberOfFeatures { get; set; }
+        public int NumberOfScenarios { get; set; }
+        public int NumberOfSuccesfulFeatures { get; set; }
+        public int NumberOfFailingFeatures { get; set; }
+        public int NumberOfInconclusiveFeatures { get; set; }
+        public int NumberOfIgnoredFeatures { get;  set; }
+
+
+        public static FeatureListVm CreateFromFeatures(IList<Feature> specFlowFeatures)
         {
             var featureListVm = new FeatureListVm();
             featureListVm.AddRange(

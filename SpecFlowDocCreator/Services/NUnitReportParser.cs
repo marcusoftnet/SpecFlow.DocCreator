@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using SpecFlowDocCreator.Services.NUnit;
@@ -11,7 +13,12 @@ namespace SpecFlowDocCreator.Services
 
         public NUnitReportParser(string resultsFile)
         {
-            _testResult = XDocument.Load(resultsFile);
+            ParsedOK = false;
+            if (File.Exists(resultsFile))
+            {
+                _testResult = XDocument.Load(resultsFile);
+                ParsedOK = true;
+            }
         }
 
         public NUnitTestSuiteDto GetFeatureResult(string featureTitle)
@@ -23,13 +30,15 @@ namespace SpecFlowDocCreator.Services
             return new NUnitTestSuiteDto(testFixtureElement);
         }
 
-        private string NUnItFixtureNameFromFeatureName(string featureTitle)
+        public bool ParsedOK { get; private set; }
+
+        private static string NUnItFixtureNameFromFeatureName(string featureTitle)
         {
             var fixtureName = Regex.Replace(featureTitle, @"[\W]", "");
             return fixtureName.ToLower() + "feature";
         }
 
-        private XElement FindTestFixtureElement(XElement element, string testFixtureName)
+        private static XElement FindTestFixtureElement(XElement element, string testFixtureName)
         {
             // test-suite
             if (element.Name == NUnitConstants.TESTSUITE &&

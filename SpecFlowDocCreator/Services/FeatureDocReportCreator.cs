@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
+using SpecFlowDocCreator.ViewModels;
 using TechTalk.SpecFlow.Parser.SyntaxElements;
 
 namespace SpecFlowDocCreator.Services
@@ -17,22 +18,19 @@ namespace SpecFlowDocCreator.Services
             _nUnitReportParser = nUnitReportParser;
         }
 
-        public dynamic CreateFeatureDocReport()
+        public FeatureListVm CreateFeatureDocReport()
         {
-            // TODO: use featurelistvm and move props
-            dynamic result = new ExpandoObject();
-            result.Features = _features;
-            
-            result.NumberOfFeatures = _features.Count;
-            result.NumberOfScenarios = _features.Sum(f => f.Scenarios.Count());
+            // TODO: extend with nunitreport
 
-            var featureResults = _features.Select(f => _nUnitReportParser.GetFeatureResult(f.Title));
-            result.NumberOfSuccesfulFeatures = featureResults.Where(f => f.Success).Count();
-            result.NumberOfFailingFeatures = featureResults.Where(f => f.Failed).Count();
-            result.NumberOfInconclusiveFeatures = featureResults.Where(f => f.Inconclusive).Count();
-            result.NumberOfIgnoredFeatures = featureResults.Where(f => f.Ignored).Count();
-            
-            return result;
+            //result.NumberOfFeatures = _features.Count;
+            //    result.NumberOfScenarios = _features.Sum(f => f.Scenarios.Count());
+
+            //    var featureResults = _features.Select(f => _nUnitReportParser.GetFeatureResult(f.Title));
+            //    result.NumberOfSuccesfulFeatures = featureResults.Where(f => f.Success).Count();
+            //    result.NumberOfFailingFeatures = featureResults.Where(f => f.Failed).Count();
+            //    result.NumberOfInconclusiveFeatures = featureResults.Where(f => f.Inconclusive).Count();
+            //    result.NumberOfIgnoredFeatures = featureResults.Where(f => f.Ignored).Count();
+            return FeatureListVm.CreateFromFeatures(_features);
         }
     }
 }

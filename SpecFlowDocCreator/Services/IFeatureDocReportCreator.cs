@@ -1,7 +1,9 @@
-﻿namespace SpecFlowDocCreator.Services
+﻿using SpecFlowDocCreator.ViewModels;
+
+namespace SpecFlowDocCreator.Services
 {
     public interface IFeatureDocReportCreator
     {
-        dynamic CreateFeatureDocReport();
+        FeatureListVm CreateFeatureDocReport();
     }
 }

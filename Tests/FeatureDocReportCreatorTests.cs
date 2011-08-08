@@ -39,10 +39,10 @@ namespace Tests
             var result = reportCreator.CreateFeatureDocReport();
 
             // Assert
-            Assert.IsNotNull(result.Features);
+            Assert.IsNotNull(result);
             Assert.AreEqual(feature_list.Count, result.NumberOfFeatures);
         }
-
+        
         [Test]
         public void should_return_the_number_of_scenarios()
         {
