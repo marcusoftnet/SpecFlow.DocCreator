@@ -11,6 +11,6 @@ namespace SpecFlowDocCreator.Services.NUnit
             Type = suiteElement.Attribute(NUnitConstants.TYPE).ValueOrEmptyString();
             Results = suiteElement.Elements(NUnitConstants.RESULTS).Select(r => new NUnitTestResultDto(r)).ToList();
         }
-        public IList<NUnitTestResultDto> Results { get; set; }
+        public IList<NUnitTestResultDto> Results { get; private set; }
     }
 }

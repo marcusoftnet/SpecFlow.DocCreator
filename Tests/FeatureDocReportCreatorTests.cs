@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using Should.Fluent;
 using SpecFlowDocCreator.Services;
+using SpecFlowDocCreator.ViewModels;
 using TechTalk.SpecFlow.Parser.SyntaxElements;
 
 namespace Tests
@@ -13,6 +14,7 @@ namespace Tests
         private IList<Feature> feature_list;
         private NUnitReportParser nUnitReportParser;
         private IFeatureDocReportCreator reportCreator;
+        private FeatureListVm result;
 
         [TestFixtureSetUp]
         public void TestSetup()
@@ -22,6 +24,8 @@ namespace Tests
             nUnitReportParser = new NUnitReportParser(TestConstants.ROOT_TESTDATA + @"\NUnitReport\TestResult.xml");
 
             reportCreator = new FeatureDocReportCreator(feature_list, nUnitReportParser);
+            
+            result = reportCreator.CreateFeatureDocReport();
         }
 
 
@@ -35,64 +39,65 @@ namespace Tests
         [Test]
         public void should_return_the_total_number_of_features()
         {
-            // Act
-            var result = reportCreator.CreateFeatureDocReport();
-
             // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(feature_list.Count, result.NumberOfFeatures);
+            result.Should().Not.Be.Null();
+            result.NumberOfFeatures.Should().Equal(feature_list.Count);
         }
         
         [Test]
         public void should_return_the_number_of_scenarios()
         {
-            // Act
-            var result = reportCreator.CreateFeatureDocReport();
-
             // Assert
-            Assert.AreEqual(38, result.NumberOfScenarios);
+            result.NumberOfScenarios.Should().Equal(38);
         }
 
         [Test]
         public void should_return_number_of_sucessfull_features()
         {
-            // Act
-            var result = reportCreator.CreateFeatureDocReport();
-
             // Assert
-            Assert.AreEqual(14, result.NumberOfSuccesfulFeatures);
+            result.NumberOfSuccesfulFeatures.Should().Equal(14);
         }
 
         [Test]
         public void should_return_number_of_failed_features()
         {
-            // Act
-            var result = reportCreator.CreateFeatureDocReport();
-
             // Assert
-            Assert.AreEqual(1, result.NumberOfFailingFeatures);
-        }
-
-        [Test]
-        public void should_return_number_of_inconclusive_features()
-        {
-            // Act
-            var result = reportCreator.CreateFeatureDocReport();
-
-            // Assert
-            Assert.AreEqual(1, result.NumberOfInconclusiveFeatures);
+            result.NumberOfFailingFeatures.Should().Equal(1);
         }
 
         [Test]
         public void should_return_number_of_ignored_features()
         {
-            // Act
-            var result = reportCreator.CreateFeatureDocReport();
-
             // Assert
-            Assert.AreEqual(1, result.NumberOfIgnoredFeatures);
+            result.NumberOfIgnoredFeatures.Should().Equal(1);
         }
 
+        [Test]
+        public void should_return_number_of_sucessful_scenarios_for_a_feature()
+        {
+            // Assert
+            result[0].Scenarios.NumberOfSuccesfulScenarios.Should().Equal(2);
+        }
 
+        [Test]
+        public void should_return_number_of_failing_scenarios_for_a_feature()
+        {
+            // Assert
+            result[5].Scenarios.NumberOfFailingScenarios.Should().Equal(1);
+        }
+
+        [Test]
+        public void should_return_number_of_inconclusive_scenarios_for_a_feature()
+        {
+            // Assert
+            result[5].Scenarios.NumberOfInconclusiveScenarios.Should().Equal(1);
+        }
+
+        [Test]
+        public void should_return_number_of_ignored_scenarios_for_a_feature()
+        {
+            // Assert
+            result[3].Scenarios.NumberOfIgnoredScenarios.Should().Equal(1);
+        }
     }
 }

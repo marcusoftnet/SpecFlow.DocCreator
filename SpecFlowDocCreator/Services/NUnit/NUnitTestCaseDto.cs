@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Xml.Linq;
 
 namespace SpecFlowDocCreator.Services.NUnit
@@ -27,19 +26,34 @@ namespace SpecFlowDocCreator.Services.NUnit
         }
 
         public string Type { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public bool Executed { get; set; }
-        public string Result { get; set; }
-        public string Time { get; set; }
-        public int Asserts { get; set; }
-        public string ReasonMessage { get; set; }
+        public string Name { get; private set; }
+        public string Description { get; private set; }
+        public bool Executed { get; private set; }
+        public string Result { get; private set; }
+        public string Time { get; private set; }
+        public int Asserts { get; private set; }
+        public string ReasonMessage { get; private set; }
+        public NUnitTestFailureDto Failure { get; private set; }
 
-        public NUnitTestFailureDto Failure { get; set; }
-
-        public bool Success { get { return Result.ToLower() == NUnitConstants.SUCCESS; } }
-        public bool Ignored { get { return Result.ToLower() == NUnitConstants.IGNORED; } }
-        public bool Failed { get { return Result.ToLower() == NUnitConstants.FAILURE; } }
-        public bool Inconclusive { get { return Result.ToLower() == NUnitConstants.INCONCLUSIVE; } }
+        public bool Success
+        {
+            get { return Result.ToLower() == NUnitConstants.SUCCESS; }
+        }
+        public bool Ignored
+        {
+            get { return Result.ToLower() == NUnitConstants.IGNORED; }
+        }
+        public bool Failed
+        {
+            get
+            {
+                return (Result.ToLower() == NUnitConstants.FAILURE) ||
+                (Result.ToLower() == NUnitConstants.ERROR);
+            }
+        }
+        public bool Inconclusive
+        {
+            get { return Result.ToLower() == NUnitConstants.INCONCLUSIVE; }
+        }
     }
 }

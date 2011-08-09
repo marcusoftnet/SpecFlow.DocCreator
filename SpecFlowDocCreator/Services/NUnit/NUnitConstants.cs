@@ -2,8 +2,9 @@
 
 namespace SpecFlowDocCreator.Services.NUnit
 {
-    public class NUnitConstants
+    public static class NUnitConstants
     {
+        public const string ERROR = "error";
         public const string DESCRIPTION = "description";
         public const string EXECUTED = "executed";
         public const string RESULTS = "results";

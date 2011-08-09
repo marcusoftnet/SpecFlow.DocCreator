@@ -68,6 +68,11 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="TestData\02TagsAndHooks\HooksDemoSteps.cs" />
+    <Compile Include="TestData\02TagsAndHooks\IgnoredFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IgnoredFeature.feature</DependentUpon>
+    </Compile>
     <Compile Include="TestData\02TagsAndHooks\TagDemo1.feature.cs">
       <DependentUpon>TagDemo.feature</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -171,6 +176,10 @@
     <None Include="TestData\02TagsAndHooks\Hooks.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Hooks1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="TestData\02TagsAndHooks\IgnoredFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>IgnoredFeature.feature.cs</LastGenOutput>
     </None>
     <None Include="TestData\02TagsAndHooks\TagDemo.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

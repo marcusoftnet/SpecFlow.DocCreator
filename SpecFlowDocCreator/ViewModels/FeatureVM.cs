@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using SpecFlowDocCreator.Services;
 
 namespace SpecFlowDocCreator.ViewModels
 {
@@ -28,5 +29,23 @@ namespace SpecFlowDocCreator.ViewModels
                            Title = specFlowFeature.Title
                        };
         }
+
+        public void ExtendWithNUnitInfo(INUnitReportParser nUnitReportParser)
+        {
+            Scenarios.ExtendWithNUnitInfo(nUnitReportParser);
+        
+            var featureResult = nUnitReportParser.GetFeatureResult(Title);
+            Success = featureResult.Success;
+            Failed = featureResult.Failed;
+            
+            Ignored =  featureResult.Ignored;
+            Inconclusive = featureResult.Inconclusive;
+                        
+        }
+
+        public bool Inconclusive { get; set; }
+        public bool Ignored { get; set; }
+        public bool Failed { get; set; }
+        public bool Success { get; set; }
     }
 }

@@ -20,17 +20,14 @@ namespace SpecFlowDocCreator.Services
 
         public FeatureListVm CreateFeatureDocReport()
         {
-            // TODO: extend with nunitreport
+            var viewModel = FeatureListVm.CreateFromFeatures(_features);
 
-            //result.NumberOfFeatures = _features.Count;
-            //    result.NumberOfScenarios = _features.Sum(f => f.Scenarios.Count());
+            if (_nUnitReportParser.ParsedOK)
+            {
+                viewModel.ExtendWithNUnitInfo(_nUnitReportParser);
+            }
 
-            //    var featureResults = _features.Select(f => _nUnitReportParser.GetFeatureResult(f.Title));
-            //    result.NumberOfSuccesfulFeatures = featureResults.Where(f => f.Success).Count();
-            //    result.NumberOfFailingFeatures = featureResults.Where(f => f.Failed).Count();
-            //    result.NumberOfInconclusiveFeatures = featureResults.Where(f => f.Inconclusive).Count();
-            //    result.NumberOfIgnoredFeatures = featureResults.Where(f => f.Ignored).Count();
-            return FeatureListVm.CreateFromFeatures(_features);
+            return viewModel;
         }
     }
 }

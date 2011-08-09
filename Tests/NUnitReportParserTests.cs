@@ -49,6 +49,22 @@ namespace Tests
             featureResult.Asserts.Should().Equal(0);
             featureResult.Results[0].TestCases.Count.Should().Equal(2);
         }
+
+        [Test]
+        public void should_return_a_test_case_result()
+        {
+            // Arrange
+            var testCaseName = @"Using And and But";
+
+            // Act
+            var testCaseResult = _nunitReportParser.GetTestCaseResult(testCaseName);
+
+            // Assert
+            testCaseResult.Name.ToLower().Should().EndWith("usingandandbut");
+            testCaseResult.Success.Should().Equal(true);
+        }
+      
+        
             
     }
 }

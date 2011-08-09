@@ -23,7 +23,7 @@ namespace SpecFlowDocCreator.Services
 
         public NUnitTestSuiteDto GetFeatureResult(string featureTitle)
         {
-            var nUnitTestFixtureName = NUnItFixtureNameFromFeatureName(featureTitle);
+            var nUnitTestFixtureName = NUnitFixtureNameFromFeatureName(featureTitle);
 
             var testFixtureElement = FindTestFixtureElement(_testResult.Root.Element(NUnitConstants.TESTSUITE), nUnitTestFixtureName);
 
@@ -32,10 +32,26 @@ namespace SpecFlowDocCreator.Services
 
         public bool ParsedOK { get; private set; }
 
-        private static string NUnItFixtureNameFromFeatureName(string featureTitle)
+        public NUnitTestCaseDto GetTestCaseResult(string scenarioTitle)
         {
-            var fixtureName = Regex.Replace(featureTitle, @"[\W]", "");
-            return fixtureName.ToLower() + "feature";
+            var nunitName = SpecFlowConvertedLowerCase(scenarioTitle);
+            var testCaseElement = FindTestCaseElement(_testResult.Root.Element(NUnitConstants.TESTSUITE), nunitName);
+
+            return new NUnitTestCaseDto(testCaseElement);
+        }
+
+        private static XElement FindTestCaseElement(XElement element, string testCaseDescription)
+        {
+            if (element.Name == NUnitConstants.TESTCASE &&
+                element.HasAttributes &&
+                SpecFlowConvertedLowerCase(element.Attribute(NUnitConstants.NAME).Value).Contains(testCaseDescription))
+            {
+                return element;
+            }
+
+            return element.Elements()
+                .Select(xElement => FindTestCaseElement(xElement, testCaseDescription))
+                .FirstOrDefault(x => x != null);
         }
 
         private static XElement FindTestFixtureElement(XElement element, string testFixtureName)
@@ -54,5 +70,16 @@ namespace SpecFlowDocCreator.Services
                 .FirstOrDefault(x => x != null);
         }
 
+       private static string SpecFlowConvertedLowerCase(string name)
+       {
+           var specFlowConverted = name.Replace("-", "_");
+           return Regex.Replace(specFlowConverted, @"[\W]", "").ToLower();
+        
+       }
+        private static string NUnitFixtureNameFromFeatureName(string featureTitle)
+        {
+            return SpecFlowConvertedLowerCase(featureTitle) + "feature";
+
+           }
     }
 }

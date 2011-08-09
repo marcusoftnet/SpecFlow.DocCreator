@@ -6,5 +6,6 @@ namespace SpecFlowDocCreator.Services
     {
         NUnitTestSuiteDto GetFeatureResult(string featureTitle);
         bool ParsedOK {get; }
+        NUnitTestCaseDto GetTestCaseResult(string scenarioTitle);
     }
 }
