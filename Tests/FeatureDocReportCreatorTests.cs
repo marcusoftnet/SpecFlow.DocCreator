@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using NSubstitute;
 using NUnit.Framework;
 using Should.Fluent;
 using SpecFlowDocCreator.Services;
@@ -12,7 +13,7 @@ namespace Tests
     public class FeatureDocReportCreatorTests
     {
         private IList<Feature> feature_list;
-        private NUnitReportParser nUnitReportParser;
+        private INUnitReportParser nUnitReportParser;
         private IFeatureDocReportCreator reportCreator;
         private FeatureListVm result;
 
@@ -28,6 +29,21 @@ namespace Tests
             result = reportCreator.CreateFeatureDocReport();
         }
 
+        [Test]
+        public void should_not_track_any_nunit_data_when_no_parsing_has_been_done()
+        {
+            // Arrange
+            nUnitReportParser = Substitute.For<INUnitReportParser>();
+            nUnitReportParser.ParsedOK.Returns(false);
+            reportCreator = new FeatureDocReportCreator(feature_list, nUnitReportParser);
+            
+            // Act
+            result = reportCreator.CreateFeatureDocReport();
+
+            // Assert
+            result.ForEach(f => f.Success.Should().Equal(false));
+        }
+      
 
         [Test]
         public void should_create_report_creator_from_feature_list_and_results_parser()

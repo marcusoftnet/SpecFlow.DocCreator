@@ -10,11 +10,11 @@ namespace SpecFlowDocCreator.ViewModels
     {
         public int NumberOfFeatures { get { return Count; } }
         public int NumberOfScenarios { get { return this.Sum(f => f.Scenarios.Count()); } }
-        public int NumberOfSuccesfulFeatures { get; set; }
-        public int NumberOfFailingFeatures { get; set; }
-        public int NumberOfIgnoredFeatures { get;  set; }
+        public int NumberOfSuccesfulFeatures { get; private set; }
+        public int NumberOfFailingFeatures { get; private set; }
+        public int NumberOfIgnoredFeatures { get; private set; }
         
-        public static FeatureListVm CreateFromFeatures(IList<Feature> specFlowFeatures)
+        public static FeatureListVm CreateFromFeatures(IEnumerable<Feature> specFlowFeatures)
         {
             var featureListVm = new FeatureListVm();
             featureListVm.AddRange(specFlowFeatures.Select(FeatureVm.CreateFromSpecFlowFeature));
