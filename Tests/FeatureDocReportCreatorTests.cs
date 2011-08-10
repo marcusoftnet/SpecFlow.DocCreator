@@ -33,15 +33,15 @@ namespace Tests
         public void should_not_track_any_nunit_data_when_no_parsing_has_been_done()
         {
             // Arrange
-            nUnitReportParser = Substitute.For<INUnitReportParser>();
-            nUnitReportParser.ParsedOK.Returns(false);
-            reportCreator = new FeatureDocReportCreator(feature_list, nUnitReportParser);
+            var mockParser = Substitute.For<INUnitReportParser>();
+            mockParser.ParsedOK.Returns(false);
+            var creator = new FeatureDocReportCreator(feature_list, mockParser);
             
             // Act
-            result = reportCreator.CreateFeatureDocReport();
+            var r = creator.CreateFeatureDocReport();
 
             // Assert
-            result.ForEach(f => f.Success.Should().Equal(false));
+            r.ForEach(f => f.Success.Should().Equal(false));
         }
       
 

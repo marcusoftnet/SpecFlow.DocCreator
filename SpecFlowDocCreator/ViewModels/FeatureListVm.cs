@@ -13,7 +13,7 @@ namespace SpecFlowDocCreator.ViewModels
         public int NumberOfSuccesfulFeatures { get; private set; }
         public int NumberOfFailingFeatures { get; private set; }
         public int NumberOfIgnoredFeatures { get; private set; }
-        
+
         public static FeatureListVm CreateFromFeatures(IEnumerable<Feature> specFlowFeatures)
         {
             var featureListVm = new FeatureListVm();
@@ -24,7 +24,7 @@ namespace SpecFlowDocCreator.ViewModels
         public void ExtendWithNUnitInfo(INUnitReportParser nUnitReportParser)
         {
             this.ForEach(f => f.ExtendWithNUnitInfo(nUnitReportParser));
-            
+
             NumberOfSuccesfulFeatures = this.Where(f => f.Success).Count();
             NumberOfFailingFeatures = this.Where(f => f.Failed).Count();
             NumberOfIgnoredFeatures = this.Where(f => f.Ignored).Count();
