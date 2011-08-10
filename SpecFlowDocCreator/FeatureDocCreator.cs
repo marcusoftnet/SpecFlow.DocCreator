@@ -9,6 +9,11 @@ namespace SpecFlowDocCreator
 
     public class FeatureDocCreator
     {
+        private static ISpecFlowReportGenerator specflowReportGenerator;
+        private static INUnitReportParser nunitReportParser;
+        private static IFeatureDocReportCreator featureReportCreator;
+        private static IJsonReportViewModelCreator jsonCreator;
+        
         [Action("Generates documentation for SpecFlow features")]
         public static void CreateFeatureDocumentation(
             [Required(Description = "Root-folder for the features")]
@@ -20,21 +25,21 @@ namespace SpecFlowDocCreator
             )
         {
             // Get specflow features
-            var specflowReportGenerator = new SpecFlowReportGenerator(featureFolder, language);
+            specflowReportGenerator = new SpecFlowReportGenerator(featureFolder, language);
             var features = specflowReportGenerator.GetSpecFlowFeatures();
 
             // Create NUnit parser
-            var nunitParser = new NUnitReportParser(testResultFile);
+            nunitReportParser = new NUnitReportParser(testResultFile);
 
             // create new structure
-            var featureReportCreator = new FeatureDocReportCreator(features, nunitParser);
+            featureReportCreator = new FeatureDocReportCreator(features, nunitReportParser);
             var report = featureReportCreator.CreateFeatureDocReport();
 
             // Generate JSON
-            var json = JsonConvert.SerializeObject(report);
+            jsonCreator = new JsonReportViewModelCreator(report);
+            var json = jsonCreator.CreateViewModel();
 
             // Save to file (reportViewModel.js)
-            // TODO: Add "var vm = " framför och ";" efter json-strängen
             File.WriteAllText("reportViewModel.js", json);
         }
 

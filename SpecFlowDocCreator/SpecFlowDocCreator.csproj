@@ -95,8 +95,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\FeatureDocReportCreator.cs" />
     <Compile Include="Services\IFeatureDocReportCreator.cs" />
+    <Compile Include="Services\IJsonReportViewModelCreator.cs" />
     <Compile Include="Services\INUnitReportParser.cs" />
     <Compile Include="Services\ISpecFlowReportGenerator.cs" />
+    <Compile Include="Services\JsonFormatter.cs" />
+    <Compile Include="Services\JsonReportViewModelCreator.cs" />
     <Compile Include="Services\NUnitReportParser.cs" />
     <Compile Include="Services\NUnit\NullChecker.cs" />
     <Compile Include="Services\NUnit\NUnitConstants.cs" />
