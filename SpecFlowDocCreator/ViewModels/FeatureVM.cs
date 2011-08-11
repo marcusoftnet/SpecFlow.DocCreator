@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using Newtonsoft.Json;
 using SpecFlowDocCreator.Services;
 
 namespace SpecFlowDocCreator.ViewModels
@@ -10,6 +11,7 @@ namespace SpecFlowDocCreator.ViewModels
         public string FileName { get; set; }
         public string Directory { get; set; }
 
+        [JsonProperty(PropertyName = "ScenarioList")]
         public new ScenarioListVm Scenarios { get; set; }
 
         public static FeatureVm CreateFromSpecFlowFeature(Feature specFlowFeature)

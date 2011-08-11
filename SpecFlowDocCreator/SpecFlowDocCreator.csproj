@@ -98,7 +98,6 @@
     <Compile Include="Services\IJsonReportViewModelCreator.cs" />
     <Compile Include="Services\INUnitReportParser.cs" />
     <Compile Include="Services\ISpecFlowReportGenerator.cs" />
-    <Compile Include="Services\JsonFormatter.cs" />
     <Compile Include="Services\JsonReportViewModelCreator.cs" />
     <Compile Include="Services\NUnitReportParser.cs" />
     <Compile Include="Services\NUnit\NullChecker.cs" />

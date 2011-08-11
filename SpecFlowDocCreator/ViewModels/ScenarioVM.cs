@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
 using SpecFlowDocCreator.Services;
 
 namespace SpecFlowDocCreator.ViewModels
 {
     using TechTalk.SpecFlow.Parser.SyntaxElements;
-
+    
     public class ScenarioVm : Scenario
     {
 
@@ -14,6 +14,8 @@ namespace SpecFlowDocCreator.ViewModels
         public string Message { get; set; }
         public bool Failed { get; private set; }
         public bool Success { get; private set; }
+
+        [JsonProperty(PropertyName = "StepList")]
         public new StepListVm Steps { get; private set; }
 
         public static ScenarioVm CreateFromSpecFlowScenario(Scenario specFlowScenario)
