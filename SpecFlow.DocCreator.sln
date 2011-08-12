@@ -12,6 +12,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestData.Specs", "TestData.Specs\TestData.Specs.csproj", "{09EFDB9F-73B5-4BA4-97A6-69CF17B53806}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SpecFlow.DocCreator.Examplepage", "SpecFlow.DocCreator.Examplepage", "{329EB33E-DD7A-4A5F-87E8-25379373F4B2}"
+	ProjectSection(SolutionItems) = preProject
+		SpecFlow.DocCreator.Examplepage\index.html = SpecFlow.DocCreator.Examplepage\index.html
+		SpecFlow.DocCreator.Examplepage\livingdocsApp.js = SpecFlow.DocCreator.Examplepage\livingdocsApp.js
+		SpecFlow.DocCreator.Examplepage\screen.css = SpecFlow.DocCreator.Examplepage\screen.css
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,5 +62,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{329EB33E-DD7A-4A5F-87E8-25379373F4B2} = {C5F7BC4E-1049-4F71-8429-5998F736AB28}
 	EndGlobalSection
 EndGlobal

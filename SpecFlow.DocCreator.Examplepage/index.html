@@ -1,0 +1,52 @@
+<!-- DOCTYPE html -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>SpecFlow.DocCreator example</title>
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/humanity/jquery-ui.css"
+        type="text/css" rel="Stylesheet" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://github.com/downloads/SteveSanderson/knockout/jquery.tmpl.js"></script>
+    <script type="text/javascript" src="https://github.com/downloads/SteveSanderson/knockout/knockout-1.2.1.js"></script>
+</head>
+<body>
+    <div class="ui-widget-header">
+        <div class="ui-widget">
+            <h1>SpecFlow.DocCreator</h1>
+        </div>
+    </div>
+    <div class="ui-widget-content">
+        <div class="ui-widget">
+            <p>This page is an example on how to use the JSON-structure that the SpecFlow.DocCreator
+                program generates.</p>
+        </div>
+    </div>
+    <div class="ui-widget-content">
+        <div class="ui-widget" id="testResultFilterBox" style="float: left">
+            <h4>Test result filter</h4>
+            <label>Show successful<input type="checkbox" id="showSuccessful" checked="checked" /></label><br />
+            <label>Show failed<input type="checkbox" id="showFailedOn" checked="checked" /></label><br />
+            <label>Show ignored<input type="checkbox" id="showIgnored" checked="checked" /></label><br />
+            <label>Show inconclusive<input type="checkbox" id="showInconclusive" checked="checked" /></label><br />
+        </div>
+        <div class="ui-widget" id="tagFilterBox" style="float: left">
+            <h4>
+                Tag filter</h4>
+            <select id="tagFilter">
+                <option value="all" selected="selected">Show all tags</option>
+                <option value="demoTag1">@tag1</option>
+                <option value="demoTag2">@tag2</option>
+                <option value="demoTag3">@tag3</option>
+                <option value="demoTag4">@tag4</option>
+            </select>
+        </div>
+        <div class="ui-widget" id="searchBox" style="float:none">
+            <h4>Search:</h4>
+            <input type="text" value="Enter here" />
+        </div>
+    </div>
+    <script type="text/javascript" src="..\viewmodel.js"></script>
+    <script type="text/javascript" src="livingdocsApp.js"></script>
+</body>
+</html>
