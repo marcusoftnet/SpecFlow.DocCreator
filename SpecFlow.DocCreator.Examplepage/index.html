@@ -9,6 +9,27 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="http://github.com/downloads/SteveSanderson/knockout/jquery.tmpl.js"></script>
     <script type="text/javascript" src="https://github.com/downloads/SteveSanderson/knockout/knockout-1.2.1.js"></script>
+
+    <style type="text/css">
+        .feature
+        {
+        	border-bottom-style: solid;
+        	margin-left: 10;
+        	float:left;
+        }
+        .scenario
+        {
+        	margin-left: 20;
+        }
+        .step
+        {
+        	margin-left: 30;
+        }
+        .success      { background-color: Green;  }
+        .failed       { background-color: Red;    }
+        .ignored      { background-color: Gray;   }
+        .inconclusive { background-color: Yellow; }
+    </style>
 </head>
 <body>
     <div class="ui-widget-header">
@@ -43,12 +64,44 @@
         <div class="ui-widget" id="searchBox" style="float:none">
             <h4>Search:</h4>
             <input type="text" value="Enter here" />
-        </div>
+        </div>  
     </div>
-    <div class="ui-widget" style="width:100%; height:160; padding-left:10;">
-        <h2>Data goes here</h2>
-        <script type="text/javascript" src="..\viewmodel.js"></script>
+    <div class="ui-widget" data-bind="template: { name: 'featureTemplate', foreach: features }"> </div>
+                     
+        <script id='featureTemplate' type='text/html'>
+           <div class="feature accordion" style="float:left">
+                <h3>${Title}</h3>
+                <p><i>${Description}</i></p>
+                <ul>
+                    <li>File: ${FileName}</li>
+                    <li>Directory: ${Directory}</li>
+                    <li>Language: ${Language}</li>
+                </ul>
+                <ul data-bind="template: {
+                         name: 'scenarioTemplate', 
+                         foreach: $data.ScenarioList }">
+                </ul>
+           </div>         
+        </script>
+
+        <script id='scenarioTemplate' type="text/html">
+            <div class="scenario">
+                <h3>${Title}</h3>
+                <p>${Description}</p>
+                <ul data-bind="template: {
+                        name: 'stepTemplate', 
+                        foreach: $data.StepList }">
+                </ul>
+            </div>
+        </script>
+
+        <script id='stepTemplate' type="text/html">
+            <div class="step">
+                <i>${Keyword}</i> ${Text}
+            </div>
+        </script>
+        
+        <script type="text/javascript" src="reportViewModel.js"></script>
         <script type="text/javascript" src="livingdocsApp.js"></script>
-    </div>    
 </body>
 </html>

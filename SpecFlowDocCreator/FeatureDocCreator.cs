@@ -15,9 +15,9 @@ namespace SpecFlowDocCreator
         private static INUnitReportParser nunitReportParser;
         private static IFeatureDocReportCreator featureReportCreator;
         private static IJsonReportViewModelCreator jsonCreator;
-        
+
 #if(DEBUG)
-                private static readonly Stopwatch debugStopWatch = new Stopwatch();
+        private static readonly Stopwatch debugStopWatch = new Stopwatch();
 #endif
 
         [Action("Generates documentation for SpecFlow features")]
@@ -34,10 +34,9 @@ namespace SpecFlowDocCreator
             debugStopWatch.Start();
 #endif
             // Get specflow features
-            Log(string.Format("Starting generation with parameters:\n - featureFolder: {0}\n - language: {1}\n - testResultFile: {2}", 
+            Log(string.Format("Starting generation with parameters:\n - featureFolder: {0}\n - language: {1}\n - testResultFile: {2}",
                 featureFolder, language, testResultFile));
-            
-            Log("Parsing Gherkin features in folder");
+
             specflowReportGenerator = new SpecFlowReportGenerator(featureFolder, language);
             var features = specflowReportGenerator.GetSpecFlowFeatures();
             Log(string.Format("Parsed {0} Gherkin features", features.Count));
@@ -48,13 +47,11 @@ namespace SpecFlowDocCreator
             Log(string.Format("NUnit parsed turned {0}", parseOnOrOff));
 
             // create new structure
-            Log("Staring report creation");
             featureReportCreator = new FeatureDocReportCreator(features, nunitReportParser);
             var report = featureReportCreator.CreateFeatureDocReport();
-            Log("Report created");
+            Log("Reportstructure created");
 
             // Generate JSON
-            Log("JSON generation started");
             jsonCreator = new JsonReportViewModelCreator(report);
             var json = jsonCreator.CreateViewModel();
             Log("JSON generation finnished");
@@ -63,10 +60,10 @@ namespace SpecFlowDocCreator
             File.WriteAllText("reportViewModel.js", json);
 
 #if (DEBUG)
-{
-            debugStopWatch.Start();
-            Console.ReadLine();  
-}
+            {
+                debugStopWatch.Start();
+                Console.ReadLine();
+            }
 #endif
         }
 
