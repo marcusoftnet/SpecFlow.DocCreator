@@ -15,10 +15,11 @@ namespace SpecFlowDocCreator.Services
         public string CreateViewModel()
         {
             // Generate JSON, with indentention
-            var json = JsonConvert.SerializeObject(_objectToJSONify, Formatting.Indented);
+            var settings = new JsonSerializerSettings {NullValueHandling = NullValueHandling.Ignore};
+            var json = JsonConvert.SerializeObject(_objectToJSONify, Formatting.Indented, settings);
 
             // Add viewModelStuff
-            return  string.Format(VIEWMODEL_TEMPLATE, json);
+            return string.Format(VIEWMODEL_TEMPLATE, json);
         }
     }
 }

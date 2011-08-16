@@ -58,13 +58,13 @@ namespace SpecFlowDocCreator
 
             // Save to file
             File.WriteAllText("reportViewModel.js", json);
-
 #if (DEBUG)
             {
                 debugStopWatch.Start();
                 Console.ReadLine();
             }
 #endif
+            Log("Report created to reportViewModel.js"); // TODO: Maybe this should be a optional parameter...
         }
 
         private static void Log(string message)

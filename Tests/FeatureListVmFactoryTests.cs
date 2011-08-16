@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using NUnit.Framework;
 using Should.Fluent;
 using SpecFlowDocCreator.ViewModels;
@@ -50,6 +48,19 @@ namespace Tests
             // Assert
             scenarioVm.Title.Should().Equal("Title");
             scenarioVm.Steps.Count.Should().Equal(3);
+        }
+
+        [Test]
+        public void should_create_a_featureVM_from_a_feature()
+        {
+            // Arrange
+            var f = CreateTestFeature("Feature 1");
+
+            // Act
+            var vm = FeatureVm.CreateFromSpecFlowFeature(f);
+
+            // Assert
+            vm.Title.Should().Equal("Feature 1");
         }
       
 
@@ -118,7 +129,7 @@ namespace Tests
             return list;
         }
 
-        private Feature CreateTestFeature(string title)
+        private static Feature CreateTestFeature(string title)
         {
             return new Feature
                        {

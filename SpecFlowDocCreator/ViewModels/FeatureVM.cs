@@ -11,6 +11,13 @@ namespace SpecFlowDocCreator.ViewModels
         public string FileName { get; set; }
         public string Directory { get; set; }
 
+        public bool Inconclusive { get; set; }
+        public bool Ignored { get; set; }
+        public bool Failed { get; set; }
+        public bool Success { get; set; }
+        public string Result { get; set; }
+        public string Time { get; set; }
+
         [JsonProperty(PropertyName = "ScenarioList")]
         public new ScenarioListVm Scenarios { get; set; }
 
@@ -39,15 +46,10 @@ namespace SpecFlowDocCreator.ViewModels
             var featureResult = nUnitReportParser.GetFeatureResult(Title);
             Success = featureResult.Success;
             Failed = featureResult.Failed;
-            
             Ignored =  featureResult.Ignored;
             Inconclusive = featureResult.Inconclusive;
-                        
+            Result = featureResult.Result;
+            Time = featureResult.Time;
         }
-
-        public bool Inconclusive { get; set; }
-        public bool Ignored { get; set; }
-        public bool Failed { get; set; }
-        public bool Success { get; set; }
     }
 }

@@ -14,6 +14,8 @@ namespace SpecFlowDocCreator.ViewModels
         public string Message { get; set; }
         public bool Failed { get; private set; }
         public bool Success { get; private set; }
+        public string Result { get; set; }
+        public string Time { get; set; }
 
         [JsonProperty(PropertyName = "StepList")]
         public new StepListVm Steps { get; private set; }
@@ -36,6 +38,9 @@ namespace SpecFlowDocCreator.ViewModels
 
             Success = testCaseResult.Success;
             Failed = testCaseResult.Failed;
+            Result = testCaseResult.Result;
+            Time = testCaseResult.Time;
+
             if (testCaseResult.Failed)
             {
                 if (testCaseResult.Failure != null)
